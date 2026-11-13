@@ -29,3 +29,5 @@ def fetch_daily_weather(lat, lon, start_date, end_date, max_retries=3):
             wait = 2 ** attempt
             logger.warning("Attempt %d failed (%s). Retrying in %ds", attempt, e, wait)
             time.sleep(wait)
+
+
