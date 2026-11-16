@@ -1,7 +1,8 @@
+# Here What we are doing is trying to get the possible way the error can happen so in future if any changes made we can find the error
 import math
 from src.transform import to_dataframe
 
-
+#Sample Json Data For Testing
 def sample_json(**overrides):
     daily = {
         "time": ["2026-10-01", "2026-10-02"],
@@ -23,6 +24,7 @@ def test_one_row_per_day():
 def test_invalid_rows_are_dropped():
     df = to_dataframe(sample_json(temperature_2m_max=[10.0, 29.0]), city_id=1)
     assert len(df) == 1
+    # assert df['temperature_2m_max'] > df['temperature_2m_min'].all()
 
 def test_nulls_are_kept_as_missing():
     df = to_dataframe(sample_json(precipitation_sum=[None, 5.2]), city_id=1)
