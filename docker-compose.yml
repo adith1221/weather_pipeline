@@ -8,6 +8,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./sql/01_create_tables.sql:/docker-entrypoint-initdb.d/01_create_tables.sql
+      - ./sql/03_dim_date.sql:/docker-entrypoint-initdb.d/03_dim_date.sql
 
 volumes:
-  pgdata:
+  pgdata: 
